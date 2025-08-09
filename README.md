@@ -5,3 +5,32 @@ This repository will hold the downstream analysis done on protein embeddings gen
 More species might be added in the future. Check the original repository for more details.
 
 The goal of this repository is to show the different possibilities in terms of analyzing the embeddings together with their associated metadata.
+
+## Classification results
+
+After a quick classification effort through LightGBM Classifier, these are the metrics for the 20 most common GO annotations when trying to predict them on a test partition of the data. The table is ordered by F1-Score. See the notebook for more details.
+
+Accuracy should almost always not be considered in this specific case, since when considering individual labels, the vast majority of proteins in the dataset have it deactivated (its value is ```0```). This means that just predicting ```0``` everywhere will by default yield a very good accuracy.
+
+|Accuracy|F1  |Precision|Recall|GO        |GO_desc                                                              |
+|--------|----|---------|------|----------|---------------------------------------------------------------------|
+|0.99    |0.9 |0.92     |0.89  |GO:0005524|ATP binding                                                          |
+|0.98    |0.86|0.8      |0.94  |GO:0000981|DNA-binding transcription factor activity, RNA polymerase II-specific|
+|0.97    |0.86|0.89     |0.82  |GO:0008270|zinc ion binding                                                     |
+|0.97    |0.79|0.74     |0.84  |GO:0006357|regulation of transcription by RNA polymerase II                     |
+|0.87    |0.77|0.75     |0.79  |GO:0005886|plasma membrane                                                      |
+|0.97    |0.73|0.72     |0.74  |GO:0000785|chromatin                                                            |
+|0.83    |0.72|0.7      |0.75  |GO:0005634|nucleus                                                              |
+|0.94    |0.69|0.61     |0.79  |GO:0005615|extracellular space                                                  |
+|0.92    |0.67|0.6      |0.75  |GO:0005576|extracellular region                                                 |
+|0.78    |0.66|0.59     |0.75  |GO:0005829|cytosol                                                              |
+|0.94    |0.63|0.63     |0.63  |GO:0005739|mitochondrion                                                        |
+|0.77    |0.62|0.55     |0.71  |GO:0005737|cytoplasm                                                            |
+|0.94    |0.62|0.57     |0.68  |GO:0003723|RNA binding                                                          |
+|0.83    |0.61|0.56     |0.68  |GO:0005654|nucleoplasm                                                          |
+|0.95    |0.6 |0.57     |0.64  |GO:0046872|metal ion binding                                                    |
+|0.94    |0.57|0.5      |0.66  |GO:0005789|endoplasmic reticulum membrane                                       |
+|0.79    |0.49|0.42     |0.6   |GO:0016020|membrane                                                             |
+|0.86    |0.46|0.39     |0.57  |GO:0070062|extracellular exosome                                                |
+|0.92    |0.41|0.37     |0.46  |GO:0005783|endoplasmic reticulum                                                |
+|0.85    |0.35|0.3      |0.42  |GO:0042802|identical protein binding                                            |
